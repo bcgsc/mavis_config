@@ -46,7 +46,7 @@
         },
         "annotate.skip_illustrate": {
             "default": false,
-            "description": "skip generating the illustration of the annotation stage within the MAVIS pipeline",
+            "description": "Skip generating the illustration of the annotation stage within the MAVIS pipeline",
             "type": "boolean"
         },
         "bam_stats.distribution_fraction": {
