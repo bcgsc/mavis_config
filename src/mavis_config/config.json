@@ -169,6 +169,7 @@
                         "type": "string"
                     },
                     "inputs": {
+                        "description": "List of input files",
                         "items": {
                             "type": "string"
                         },
@@ -193,17 +194,23 @@
             },
             "type": "object"
         },
+        "illustrate.breakpoint_color": {
+            "default": "#000000",
+            "description": "Breakpoint outline color",
+            "pattern": "^#[a-zA-Z0-9]{6}",
+            "type": "string"
+        },
         "illustrate.domain_color": {
             "default": "#ccccb3",
             "description": "Domain fill color",
-            "type": "string",
-            "pattern": "^#[a-zA-Z0-9]{6}"
+            "pattern": "^#[a-zA-Z0-9]{6}",
+            "type": "string"
         },
         "illustrate.domain_mismatch_color": {
             "default": "#b2182b",
             "description": "Domain fill color on 0%% match",
-            "type": "string",
-            "pattern": "^#[a-zA-Z0-9]{6}"
+            "pattern": "^#[a-zA-Z0-9]{6}",
+            "type": "string"
         },
         "illustrate.domain_name_regex_filter": {
             "default": "^PF\\d+$",
@@ -213,8 +220,8 @@
         "illustrate.domain_scaffold_color": {
             "default": "#000000",
             "description": "The color of the domain scaffold",
-            "type": "string",
-            "pattern": "^#[a-zA-Z0-9]{6}"
+            "pattern": "^#[a-zA-Z0-9]{6}",
+            "type": "string"
         },
         "illustrate.drawing_width_iter_increase": {
             "default": 500,
@@ -297,32 +304,21 @@
             "description": "The drawing width in pixels",
             "type": "integer"
         },
-        "illustrate.breakpoint_color": {
-            "default": "#000000",
-            "description": "Breakpoint outline color",
-            "type": "string",
-            "pattern": "^#[a-zA-Z0-9]{6}"
-        },
         "libraries": {
             "additionalProperties": {
                 "additionalProperties": false,
                 "properties": {
                     "assign": {
+                        "description": "List of input files or conversion aliases that should be processed for this library",
                         "items": {
                             "type": "string"
                         },
                         "minItems": 1,
-                        "type": "array",
-                        "description": "List of input files or conversion aliases that should be processed for this library"
-                    },
-                    "total_batches": {
-                        "type": "integer",
-                        "min": 1,
-                        "description": "The number of jobs to slit a library into for cluster/validate/annotate. This will be set during initialization of the config if not given"
+                        "type": "array"
                     },
                     "bam_file": {
-                        "type": "string",
-                        "description": "Path to the bam file containing the sequencing reads for this library"
+                        "description": "Path to the bam file containing the sequencing reads for this library",
+                        "type": "string"
                     },
                     "disease_status": {
                         "enum": [
@@ -332,8 +328,8 @@
                         "type": "string"
                     },
                     "median_fragment_size": {
-                        "type": "integer",
-                        "description": "The median fragment size in the paired-end read library. This will be computed from the bam during initialization of the config if not given"
+                        "description": "The median fragment size in the paired-end read library. This will be computed from the bam during initialization of the config if not given",
+                        "type": "integer"
                     },
                     "protocol": {
                         "enum": [
@@ -343,12 +339,12 @@
                         "type": "string"
                     },
                     "read_length": {
-                        "type": "integer",
-                        "description": "The read length in the paired-end read library. This will be computed from the bam during initialization of the config if not given"
+                        "description": "The read length in the paired-end read library. This will be computed from the bam during initialization of the config if not given",
+                        "type": "integer"
                     },
                     "stdev_fragment_size": {
-                        "type": "integer",
-                        "description": "The standard deviation of fragment size in the paired-end read library. This will be computed from the bam during initialization of the config if not given"
+                        "description": "The standard deviation of fragment size in the paired-end read library. This will be computed from the bam during initialization of the config if not given",
+                        "type": "integer"
                     },
                     "strand_determining_read": {
                         "default": 2,
@@ -358,6 +354,11 @@
                     "strand_specific": {
                         "default": false,
                         "type": "boolean"
+                    },
+                    "total_batches": {
+                        "description": "The number of jobs to slit a library into for cluster/validate/annotate. This will be set during initialization of the config if not given",
+                        "min": 1,
+                        "type": "integer"
                     }
                 },
                 "required": [
@@ -382,8 +383,8 @@
             "type": "string"
         },
         "output_dir": {
-            "type": "string",
-            "description": "path to the directory to output the MAVIS files to"
+            "description": "path to the directory to output the MAVIS files to",
+            "type": "string"
         },
         "pairing.contig_call_distance": {
             "default": 10,
@@ -411,6 +412,7 @@
             "type": "integer"
         },
         "reference.aligner_reference": {
+            "description": "The reference genome file used by the aligner",
             "examples": [
                 "tests/data/mock_reference_genome.2bit"
             ],
@@ -419,10 +421,10 @@
             },
             "maxItems": 1,
             "minItems": 1,
-            "type": "array",
-            "description": "The reference genome file used by the aligner"
+            "type": "array"
         },
         "reference.annotations": {
+            "description": "The reference file containing gene/transcript position information",
             "examples": [
                 "tests/data/mock_annotations.json"
             ],
@@ -430,8 +432,7 @@
                 "type": "string"
             },
             "minItems": 1,
-            "type": "array",
-            "description": "The reference file containing gene/transcript position information"
+            "type": "array"
         },
         "reference.dgv_annotation": {
             "examples": [
@@ -446,6 +447,7 @@
             "type": "array"
         },
         "reference.masking": {
+            "description": "A list of regions to ignore in validation. Generally these are centromeres and telomeres or known poor mapping areas",
             "examples": [
                 [
                     "tests/data/mock_masking.tab"
@@ -455,8 +457,7 @@
                 "type": "string"
             },
             "minItems": 1,
-            "type": "array",
-            "description": "A list of regions to ignore in validation. Generally these are centromeres and telomeres or known poor mapping areas"
+            "type": "array"
         },
         "reference.reference_genome": {
             "examples": [
