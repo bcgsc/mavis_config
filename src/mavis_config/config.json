@@ -148,21 +148,23 @@
                         "type": "boolean"
                     },
                     "file_type": {
-                        "description": "the tool the file is input from or 'mavis' for standard mavis-style tab files",
+                        "description": "The tool the file is input from. This is the loader method that will be used, if not given the loader method will default to match the tool name that is given. This value should be 'mavis' for standard mavis-style tab files, or 'vcf' for the general vcf loader",
                         "enum": [
-                            "manta",
-                            "delly",
-                            "transabyss",
-                            "pindel",
-                            "chimerascan",
-                            "mavis",
-                            "defuse",
                             "breakdancer",
-                            "vcf",
                             "breakseq",
+                            "chimerascan",
                             "cnvnator",
+                            "cuteSV",
+                            "defuse",
+                            "delly",
+                            "manta",
+                            "mavis",
+                            "pindel",
+                            "sniffles",
+                            "starfusion",
                             "strelka",
-                            "starfusion"
+                            "transabyss",
+                            "vcf"
                         ],
                         "type": "string"
                     },
@@ -171,8 +173,12 @@
                             "type": "string"
                         },
                         "minItems": 1,
-                        "type": "array",
-                        "description": "List of input files"
+                        "type": "array"
+                    },
+                    "tool_name": {
+                        "description": "Name of the tool to be used in MAVIS output files (in the tools column). If not given the file_type will be used as the tool name instead",
+                        "pattern": "^[^;]+$",
+                        "type": "string"
                     },
                     "strand_specific": {
                         "default": false,
