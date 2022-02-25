@@ -98,7 +98,7 @@ class TestSetup:
             conf,
             stage='setup',
         )
-        assert conf['libraries']['AAAA']['assign'] == [main, overlay]
+        assert sorted(conf['libraries']['AAAA']['assign']) == sorted([main, overlay])
 
     def test_missing_output_dir_for_convert(self):
         with pytest.raises(WorkflowError) as err:
@@ -153,4 +153,4 @@ class TestSetup:
             stage='setup',
         )
         assert conf['libraries']['AAAA']['assign'] == ['dlly']
-        assert conf['convert']['dlly']['inputs'] == [main, overlay]
+        assert sorted(conf['convert']['dlly']['inputs']) == sorted([main, overlay])
