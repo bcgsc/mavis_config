@@ -154,7 +154,7 @@
                             "breakseq",
                             "chimerascan",
                             "cnvnator",
-                            "cuteSV",
+                            "cutesv",
                             "defuse",
                             "delly",
                             "manta",
@@ -162,6 +162,7 @@
                             "pindel",
                             "sniffles",
                             "starfusion",
+                            "straglr",
                             "strelka",
                             "transabyss",
                             "vcf"
@@ -176,14 +177,14 @@
                         "minItems": 1,
                         "type": "array"
                     },
+                    "strand_specific": {
+                        "default": false,
+                        "type": "boolean"
+                    },
                     "tool_name": {
                         "description": "Name of the tool to be used in MAVIS output files (in the tools column). If not given the file_type will be used as the tool name instead",
                         "pattern": "^[^;]+$",
                         "type": "string"
-                    },
-                    "strand_specific": {
-                        "default": false,
-                        "type": "boolean"
                     }
                 },
                 "required": [
