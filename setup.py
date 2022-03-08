@@ -27,7 +27,7 @@ except Exception:  # do not fail install on README errors
 
 DEPLOY_REQS = ['twine', 'm2r', 'wheel']
 
-VERSION = '1.1.2'
+VERSION = '1.2.0'
 
 setup(
     name='mavis_config',
@@ -48,7 +48,7 @@ setup(
     },
     tests_require=TEST_REQS,
     setup_requires=['pip>=9.0.0', 'setuptools>=36.0.0'],
-    python_requires='>=3.6',
+    python_requires='>=3.7',
     author='Caralyn Reisle',
     author_email='creisle@bcgsc.ca',
     test_suite='tests',
