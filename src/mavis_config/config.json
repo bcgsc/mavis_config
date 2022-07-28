@@ -489,6 +489,11 @@
             "description": "skip the validation stage of the MAVIS pipeline",
             "type": "boolean"
         },
+        "summary.cluster_radius": {
+            "default": 10,
+            "description": "Maximum distance allowed between breakpoint pairs of called SVs and those of known SVs",
+            "type": "integer"
+        },
         "summary.filter_cdna_synon": {
             "default": true,
             "description": "Filter all annotations synonymous at the cdna level",
