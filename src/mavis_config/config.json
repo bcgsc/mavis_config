@@ -490,7 +490,8 @@
             "type": "boolean"
         },
         "summary.cluster_radius": {
-            "default": 0,
+            "default": 100,
+            "minimum": 0,
             "description": "Distance used in matching input SVs to reference SVs through clustering",
             "type": "integer"
         },
