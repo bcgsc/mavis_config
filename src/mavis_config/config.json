@@ -489,6 +489,12 @@
             "description": "skip the validation stage of the MAVIS pipeline",
             "type": "boolean"
         },
+        "summary.cluster_radius": {
+            "default": 10,
+            "minimum": 0,
+            "description": "Distance used in matching input SVs to reference SVs through clustering",
+            "type": "integer"
+        },
         "summary.filter_cdna_synon": {
             "default": true,
             "description": "Filter all annotations synonymous at the cdna level",

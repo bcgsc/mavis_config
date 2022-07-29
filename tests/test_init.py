@@ -23,7 +23,7 @@ def test_default_matches_json():
 
 
 def test_sets_all_defaults():
-    assert len(DEFAULTS) == 97
+    assert len(DEFAULTS) == 98
 
 
 def test_get_by_prefix():
