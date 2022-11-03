@@ -39,7 +39,7 @@ setup(
     description='Config validation for running MAVIS via Snakemake',
     long_description=long_description,
     long_description_content_type='text/markdown',
-    install_requires=['snakemake>=6.1.1, <7', 'braceexpand'],
+    install_requires=['snakemake>=7.18.1', 'braceexpand'],
     extras_require={
         'docs': DOC_REQS,
         'test': TEST_REQS,
