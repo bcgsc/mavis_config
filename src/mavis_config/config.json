@@ -150,6 +150,7 @@
                     "file_type": {
                         "description": "The tool the file is input from. This is the loader method that will be used, if not given the loader method will default to match the tool name that is given. This value should be 'mavis' for standard mavis-style tab files, or 'vcf' for the general vcf loader",
                         "enum": [
+                            "arriba",
                             "breakdancer",
                             "breakseq",
                             "chimerascan",

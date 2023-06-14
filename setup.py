@@ -27,7 +27,7 @@ except Exception:  # do not fail install on README errors
 
 DEPLOY_REQS = ['twine', 'm2r', 'wheel']
 
-VERSION = '1.2.2'
+VERSION = '1.2.3'
 
 setup(
     name='mavis_config',
